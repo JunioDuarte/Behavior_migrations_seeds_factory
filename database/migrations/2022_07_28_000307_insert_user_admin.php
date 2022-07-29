@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
+
 class InsertUserAdmin extends Migration
 {
     /**
@@ -31,6 +32,7 @@ class InsertUserAdmin extends Migration
      */
     public function down()
     {
+        $email = env('ADMIN_EMAIL', 'admin@laraveldeveloper.com.br');
         DB::delete('DELETE FROM  users WHERE email = ?', [$email]);
     }
 }
